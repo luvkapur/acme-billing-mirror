@@ -12,7 +12,7 @@
     "billing/invoice-total": {
         "name": "billing/invoice-total",
         "scope": "acme-modular.billing",
-        "version": "b10e2a56da71baf71bdc2fddafb828aa64f458ff",
+        "version": "6cb5bcef554b4d22b7a7e2b314df9cd902f32c09",
         "mainFile": "index.ts",
         "rootDir": "billing/billing/invoice-total"
     },
