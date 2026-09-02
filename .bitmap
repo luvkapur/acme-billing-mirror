@@ -12,9 +12,16 @@
     "billing/invoice-total": {
         "name": "billing/invoice-total",
         "scope": "acme-modular.billing",
-        "version": "0.0.2",
+        "version": "6cb5bcef554b4d22b7a7e2b314df9cd902f32c09",
         "mainFile": "index.ts",
         "rootDir": "billing/billing/invoice-total"
     },
-    "$schema-version": "17.0.0"
+    "$schema-version": "17.0.0",
+    "_bit_lane": {
+        "id": {
+            "name": "phase-b-check",
+            "scope": "acme-modular.billing"
+        },
+        "exported": true
+    }
 }
