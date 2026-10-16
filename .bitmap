@@ -9,12 +9,40 @@
  */
 
 {
+    "billing/billing-history-page": {
+        "name": "billing/billing-history-page",
+        "scope": "acme-modular.billing",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "billing/billing/billing-history-page"
+    },
+    "billing/invoice": {
+        "name": "billing/invoice",
+        "scope": "acme-modular.billing",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "billing/billing/invoice"
+    },
     "billing/invoice-total": {
         "name": "billing/invoice-total",
         "scope": "acme-modular.billing",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "billing/billing/invoice-total"
+    },
+    "billing/invoice-view": {
+        "name": "billing/invoice-view",
+        "scope": "acme-modular.billing",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "billing/billing/invoice-view"
+    },
+    "billing/use-invoices": {
+        "name": "billing/use-invoices",
+        "scope": "acme-modular.billing",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "billing/billing/use-invoices"
     },
     "$schema-version": "17.0.0"
 }

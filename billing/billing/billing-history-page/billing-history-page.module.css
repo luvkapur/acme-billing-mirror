@@ -1,0 +1,61 @@
+.billingHistoryPage {
+  padding: var(--spacing-xl, 24px);
+  color: var(--colors-text-primary, #212121);
+  background: var(--colors-surface-background, #fff);
+}
+
+.heading {
+  margin: 0;
+  font-size: var(--typography-sizes-heading-h2, 32px);
+  font-weight: var(--typography-font-weight-bold, 700);
+}
+
+.empty {
+  margin: 0;
+  color: var(--colors-text-secondary, #666);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--colors-surface-primary, #fff);
+  border-radius: var(--borders-radius-medium, 8px);
+  box-shadow: var(--effects-shadows-small, 0 1px 3px rgba(0, 0, 0, 0.12));
+  overflow: hidden;
+}
+
+.table th,
+.table td {
+  padding: var(--spacing-medium, 8px) var(--spacing-large, 16px);
+  border-bottom: var(--borders-default-width, 1px) solid var(--borders-default-color, #e0e0e0);
+  text-align: left;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table thead th {
+  font-size: var(--typography-sizes-body-small, 14px);
+  font-weight: var(--typography-font-weight-medium, 500);
+  color: var(--colors-text-secondary, #666);
+}
+
+.table tbody tr:hover {
+  background: var(--colors-surface-secondary, #f7f7f7);
+}
+
+.table .number {
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* keeps the action column header for screen readers without showing it */
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
