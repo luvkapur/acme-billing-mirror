@@ -1,0 +1,72 @@
+.invoiceView {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large, 16px);
+  color: var(--colors-text-primary, #212121);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-medium, 8px);
+}
+
+.id {
+  font-size: var(--typography-sizes-heading-h5, 18px);
+  font-weight: var(--typography-font-weight-semi-bold, 600);
+}
+
+.dates {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: var(--spacing-medium, 8px);
+  margin: var(--spacing-small, 4px) 0 0;
+  font-size: var(--typography-sizes-body-small, 14px);
+  color: var(--colors-text-secondary, #666);
+}
+
+.dates dd {
+  margin: 0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--typography-sizes-body-medium, 16px);
+}
+
+.caption {
+  text-align: left;
+  padding-bottom: var(--spacing-small, 4px);
+  font-size: var(--typography-sizes-body-small, 14px);
+  color: var(--colors-text-secondary, #666);
+}
+
+.table th,
+.table td {
+  padding: var(--spacing-small, 4px) var(--spacing-medium, 8px);
+  border-bottom: var(--borders-default-width, 1px) solid var(--borders-default-color, #e0e0e0);
+  text-align: left;
+}
+
+.table thead th {
+  font-size: var(--typography-sizes-body-small, 14px);
+  font-weight: var(--typography-font-weight-medium, 500);
+  color: var(--colors-text-secondary, #666);
+}
+
+.table .number {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.total th,
+.total td {
+  border-bottom: none;
+  font-weight: var(--typography-font-weight-bold, 700);
+}
+
+.total th {
+  text-align: right;
+}

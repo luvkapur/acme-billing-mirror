@@ -1,0 +1,32 @@
+---
+labels: ['invoice', 'entity', 'billing']
+description: 'A bill for an order, with lines, a total and a paid, open or overdue status.'
+---
+
+`Invoice` is the bill billing issues for each order. `Invoice.fromOrder` copies the order lines and adds a "Shipping" line and, when the order had one, a negative "Bulk discount" line, so the invoice `total` always equals `order.total`. The status is computed at a point in time with `statusAt(now)`, never stored.
+
+## Invoice an order
+
+```ts
+import { Invoice } from '@acme-modular/billing.billing.invoice';
+
+const invoice = Invoice.fromOrder(order, { termsDays: 14 });
+invoice.total.format(); // same as order.total.format()
+invoice.dueAt;          // 14 days after the order was placed
+```
+
+## Status
+
+```ts
+invoice.statusAt();                                  // 'open', 'overdue' or 'paid' as of now
+invoice.statusAt(new Date('2026-10-16'));            // a fixed date for tests and previews
+invoice.markPaid('2026-10-16T09:00:00.000Z').statusAt(); // 'paid'
+```
+
+## Demo data
+
+```ts
+import { mockInvoices, plainMockInvoices } from '@acme-modular/billing.billing.invoice';
+
+const [open, paid, overdue] = mockInvoices(); // as of mid-October 2026
+```

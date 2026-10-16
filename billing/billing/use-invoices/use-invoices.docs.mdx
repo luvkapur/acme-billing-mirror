@@ -1,0 +1,40 @@
+---
+description: "Loads the customer's invoices, newest first."
+labels: ['hook', 'react', 'data', 'billing']
+---
+
+`useInvoices` loads invoices through the platform HTTP client and returns `Invoice` instances, newest first, in a `FetchState` (`data`, `error`, `loading`, `reload`). Without a `client` it reads an in-memory mock of the demo invoices with a short delay, so previews and the demo app run without a backend.
+
+## List invoices
+
+```tsx
+import { useInvoices } from '@acme-modular/billing.billing.use-invoices';
+
+export function Invoices() {
+  const { data: invoices, loading, error } = useInvoices();
+  if (loading && !invoices) return <Spinner label="Loading invoices" />;
+  if (error) return <Alert tone="negative">{error.message}</Alert>;
+  return <ul>{invoices!.map((invoice) => <li key={invoice.id}>{invoice.total.format()}</li>)}</ul>;
+}
+```
+
+## Outstanding balance
+
+```tsx
+const { data: invoices = [] } = useInvoices();
+const outstanding = invoices
+  .filter((invoice) => invoice.statusAt() !== 'paid')
+  .reduce((sum, invoice) => sum.add(invoice.total), Money.zero());
+```
+
+## Point at a real API
+
+Create the client once (outside render) so the hook does not refetch on every render.
+
+```tsx
+import { createHttpClient } from '@acme-modular/platform.utils.http-client';
+
+const api = createHttpClient({ baseUrl: 'https://api.acme.example/v1' });
+
+const { data, reload } = useInvoices({ client: api });
+```

@@ -1,0 +1,30 @@
+---
+description: 'An invoice as a table of lines with its total and a status badge.'
+labels: ['react', 'ui', 'billing', 'invoice']
+---
+
+`InvoiceView` renders an `Invoice` as a table of lines (description, quantity, unit price, amount) with the total, the issue and due dates, and a paid, open or overdue `Badge`. The status is computed for `now`, which defaults to the current time; pass a fixed date to keep tests and previews stable. The component also exports `InvoiceStatusBadge` so lists of invoices show statuses the same way.
+
+## Show an invoice
+
+```tsx
+import { InvoiceView } from '@acme-modular/billing.billing.invoice-view';
+
+<InvoiceView invoice={invoice} />
+```
+
+## A fixed date
+
+```tsx
+import { mockInvoices } from '@acme-modular/billing.billing.invoice';
+
+<InvoiceView invoice={mockInvoices()[2]} now={new Date('2026-10-16')} /> // overdue
+```
+
+## Just the status
+
+```tsx
+import { InvoiceStatusBadge } from '@acme-modular/billing.billing.invoice-view';
+
+<InvoiceStatusBadge status={invoice.statusAt()} />
+```

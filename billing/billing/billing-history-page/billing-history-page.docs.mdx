@@ -1,0 +1,32 @@
+---
+description: "The customer's invoices with date, total and status; each opens in a modal."
+labels: ['react', 'page', 'billing', 'invoice']
+---
+
+`BillingHistoryPage` lists the customer's invoices, newest first, with the issue date, the total and a paid, open or overdue badge. "View" opens the full `InvoiceView` in a `Modal`. It loads through `useInvoices`, so without a `client` it runs on the demo invoices; pass `now` to fix the date statuses are computed for.
+
+## In the account area
+
+```tsx
+import { BillingHistoryPage } from '@acme-modular/billing.billing.billing-history-page';
+
+<Route path="/account/billing" element={<BillingHistoryPage />} />
+```
+
+## Against a real API
+
+```tsx
+import { createHttpClient } from '@acme-modular/platform.utils.http-client';
+import { BillingHistoryPage } from '@acme-modular/billing.billing.billing-history-page';
+
+const api = createHttpClient({ baseUrl: 'https://api.acme.example/v1' });
+
+<BillingHistoryPage client={api} />
+```
+
+## A fixed date
+
+```tsx
+// statuses as of mid-October 2026: one open, one paid, one overdue
+<BillingHistoryPage now={new Date('2026-10-16')} />
+```
